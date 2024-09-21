@@ -50,7 +50,8 @@ class Department(models.Model):
         return self.name
     
 class Teacher(models.Model):
-    name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255,default='N/A')    
     qualification = models.CharField(max_length=255)
     joining_date = models.DateTimeField(auto_now_add=True)
     contact_details = models.EmailField()
@@ -69,7 +70,20 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
     
+class Student(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255,default='N/A')
+    age = models.IntegerField()
+    birthdate = models.DateField(default='2000-01-01')  # Choose a default value for birthdate
+    email = models.EmailField()
+    address = models.TextField(blank=True)
+    enrolled_date = models.DateField(auto_now_add=True)
+    picture = models.ImageField(upload_to='student_images/', blank=True, null=True)
+    course = models.CharField(max_length=255, default='N/A')  # Choose a default value for course
 
+    # Add more fields as needed
 
+    def __str__(self):
+        return self.first_name
 
    

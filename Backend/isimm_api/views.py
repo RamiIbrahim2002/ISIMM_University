@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics
-from isimm.models import Article, Club #, Matiere, Department, Enseignant, Formation'''
-from .serializers import ArticleSerializer, ClubSerializer#, DepartmentSerializer, EnseignantSerializer, FormationSerializer, MatiereSerializer
+from isimm.models import Article, Club, Student #, Matiere, Department, Enseignant, Formation'''
+from .serializers import ArticleSerializer, ClubSerializer,StudentSerializer#, DepartmentSerializer, EnseignantSerializer, FormationSerializer, MatiereSerializer
 from isimm.models import Department, Teacher, Subject
 from .serializers import DepartmentSerializer, TeacherSerializer, SubjectSerializer
 
@@ -108,6 +108,14 @@ class MatiereList(generics.ListCreateAPIView):
     serializer_class = MatiereSerializer
     
 '''
-class ClubDetail(generics.RetrieveDestroyAPIView):
+class ClubDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Club.objects.all()
     serializer_class = ClubSerializer
+
+class StudentDetail(generics.RetrieveAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+
+class StudentList(generics.ListCreateAPIView):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from isimm.models import Article, Club,Teacher,Department,Subject
+from isimm.models import Article, Club,Teacher,Department,Subject,Student
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -28,4 +28,11 @@ class SubjectSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Subject
+        fields = '__all__'
+
+
+class StudentSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Student
         fields = '__all__'

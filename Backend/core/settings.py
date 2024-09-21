@@ -134,3 +134,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Replace with the origin of your React frontend
 ]
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = r'C:\Users\USER\Desktop\Media Folder'
